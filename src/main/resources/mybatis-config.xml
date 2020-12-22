@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 通过这个配置文件完成mybatis与数据库的连接 -->
+<configuration>
+
+	<settings>
+		<!-- 配置二级缓存,默认是true,
+     但是相对应的Mapper文件要加上<cache/>标签,
+     哪个sql语句若想使用二级缓存，则需要在标签上加上 useCache="true" -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+<!--  起别名 -->
+	<typeAliases>
+<!--	批量扫描包，生成别名：类名，不区分大小写	-->
+		<package name="com.easybuy.entity"/>
+	</typeAliases>
+
+</configuration>
