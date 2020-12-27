@@ -23,7 +23,7 @@
                 </tr>
                 <c:forEach items="${newsList}" var="temp">
                     <tr>
-                        <td><a href="${ctx}/admin/news?action=newsDeatil&id=${temp.id}">${temp.title}</a></td>
+                        <td><a href="${ctx}/admin/news/queryNewsDetail?id=${temp.id}">${temp.title}</a></td>
                         <td><fmt:formatDate type="date" dateStyle="long" value="${temp.createTime}" ></fmt:formatDate></td>
                     </tr>
                 </c:forEach>

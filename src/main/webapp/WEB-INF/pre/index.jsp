@@ -32,10 +32,10 @@
                                     <c:forEach items="${temp.productCategoryVoList}" var="vo">
                                         <div class="zj_l_c">
                                             <h2>
-                                                <a href="${ctx}/Product?action=queryProductList&category=${vo.productCategory.id}&level=2">${vo.productCategory.name}</a>
+                                                <a href="${ctx}/Product/queryProductList?category=${vo.productCategory.id}&level=2">${vo.productCategory.name}</a>
                                             </h2>
                                             <c:forEach items="${vo.productCategoryVoList}" var="vo2">
-                                                <a href="${ctx}/Product?action=queryProductList&category=${vo2.productCategory.id}&level=3">${vo2.productCategory.name}</a> |
+                                                <a href="${ctx}/Product/queryProductList?category=${vo2.productCategory.id}&level=3">${vo2.productCategory.name}</a> |
                                             </c:forEach>
                                         </div>
                                     </c:forEach>
@@ -50,7 +50,7 @@
         <ul class="menu_r">
             <li><a href="${ctx}/Home/index.html">首页</a></li>
             <c:forEach items="${productCategoryVoList}" var="temp">
-                <li><a href="${ctx}/Product?action=queryProductList&level=1&category=${temp.productCategory.id}">${temp.productCategory.name}</a></li>
+                <li><a href="${ctx}/Product/queryProductList?level=1&category=${temp.productCategory.id}">${temp.productCategory.name}</a></li>
             </c:forEach>
         </ul>
         <div class="m_ad">中秋送好礼！</div>
@@ -64,6 +64,7 @@
         <div class="banner">
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
+                    <%-- 三张轮播图  --%>
                     <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
                     <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
                     <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
@@ -87,12 +88,12 @@
 <%--      新闻资讯和话费充值    --%>
         <div class="inews">
             <div class="news_t">
-                <span class="fr"><a href="${ctx}/admin/news?action=queryNewsList">更多 ></a></span>新闻资讯
+                <span class="fr"><a href="${ctx}/admin/news/queryNewsList">更多 ></a></span>新闻资讯
             </div>
             <ul>
                 <c:forEach items="${news}" var="temp">
                     <li><span>[ 公告 ]</span>
-                        <a href="${ctx}/admin/news?action=newsDeatil&id=${temp.id}">${temp.title}</a>
+                        <a href="${ctx}/admin/news/queryNewsDetail?id=${temp.id}">${temp.title}</a>
                     </li>
                 </c:forEach>
             </ul>
@@ -139,7 +140,6 @@
             <div class="fresh_left">
                 <div class="fre_ban">
                     <div id="imgPlay1">
-                    <%--     三张轮播图   --%>
                         <ul class="imgs" id="actor1">
                             <li><a href="#"><img src="${ctx}/statics/images/fre_r.jpg" width="211" height="286"/></a></li>
                             <li><a href="#"><img src="${ctx}/statics/images/fre_r.jpg" width="211" height="286"/></a></li>
@@ -152,7 +152,7 @@
                 <div class="fresh_txt">
                     <div class="fresh_txt_c">
                         <c:forEach items="${temp.productCategoryVoList}" var="vo">
-                            <a href="${ctx}/Product?action=queryProductList&category=${vo.productCategory.id}&level=2">${vo.productCategory.name}</a>
+                            <a href="${ctx}/Product/queryProductList?category=${vo.productCategory.id}&level=2">${vo.productCategory.name}</a>
                         </c:forEach>
                     </div>
                 </div>
@@ -166,8 +166,8 @@
                                 <font>￥<span>${productVo.price}</span></font> &nbsp;
                             </div>
                             <div class="img">
-                                <a href="${ctx}/Product?action=queryProductDetail&id=${productVo.id}">
-                                    <img src="${ctx}/files/${productVo.fileName}" width="185"  height="155"/>
+                                <a href="${ctx}/Product/queryProductDetail?id=${productVo.id}">
+                                    <img src="${ctx}/statics/files/${productVo.fileName}" width="185"  height="155"/>
                                 </a>
                             </div>
                         </li>

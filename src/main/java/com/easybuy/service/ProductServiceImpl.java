@@ -40,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
         }else if(currentPage > page.getPageCount()){
             currentPage = page.getPageCount();
         }
-        page.setUrl("/admin/product?action=index");
+        page.setUrl("/admin/product/index.html");
         page.setCurrentPage(currentPage);
         List<Product> productList = new ArrayList<>();
         productList = productMapper.queryPageProduct((currentPage-1)*page.getPageSize(),page.getPageSize());

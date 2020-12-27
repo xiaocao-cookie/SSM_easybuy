@@ -22,7 +22,7 @@
         <c:forEach items="${orderList}" var="temp">
           <tr class="td_bg">
             <td>用户名:${temp.loginName}</td>
-            <td><a href="${ctx}/admin/order?action=queryOrderDeatil&orderId=${temp.id}">订单号:${temp.serialNumber}</a></td>
+            <td><a href="${ctx}/admin/order/queryOrderDeatil?orderId=${temp.id}">订单号:${temp.serialNumber}</a></td>
             <td>地址:${temp.userAddress}</td>
             <td>￥${temp.cost}</td>
           </tr>
@@ -42,8 +42,8 @@
                   <tr>
                     <td>${temp.product.name}</td>
                     <td>
-                      <a href="${ctx}/Product?action=queryProductDetail&id=${temp.product.id}" target="_blank">
-                        <img src="${ctx}/files/${temp.product.fileName}" width="50" height="50">
+                      <a href="${ctx}/Product/queryProductDetail?id=${temp.product.id}" target="_blank">
+                        <img src="${ctx}/statics/files/${temp.product.fileName}" width="50" height="50">
                       </a>
                     </td>
                     <td>${temp.quantity}</td>

@@ -6,7 +6,7 @@
 </script>
 <div class="top">
     <div class="logo">
-        <a href="${ctx}/Home?action=index"><img src="${ctx}/statics/images/logo.png"></a>
+        <a href="${ctx}/Home/index.html"><img src="${ctx}/statics/images/logo.png"></a>
     </div>
     <div class="search">
         <form action="${ctx}/Product?action=queryProductList" method="post">

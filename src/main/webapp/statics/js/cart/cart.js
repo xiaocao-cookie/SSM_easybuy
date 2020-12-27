@@ -1,7 +1,4 @@
 /**
- * Created by wlg on 2018/4/27.
- */
-/**
  * 商品详情页添加到购物车
  */
 function addCart(){

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <%@ include file="/common/pre/header.jsp" %>
+    <%@ include file="../../common/pre/header.jsp" %>
     <script type="text/javascript" src="${ctx}/statics/js/common/n_nav.js"></script>
     <script src="${ctx}/statics/js/cart/cart.js"></script>
     <title>易买网</title>
@@ -11,14 +11,14 @@
 <body>
 <!--Begin Header Begin-->
 <div id="searchBar">
-    <%@ include file="/common/pre/searchBar.jsp" %>
+    <%@ include file="../../common/pre/searchBar.jsp" %>
 </div>
 <!--End Header End-->
 <!--Begin Menu Begin-->
 <div class="menu_bg">
     <div class="menu">
         <!--Begin 商品分类详情 Begin-->
-        <%@ include file="/common/pre/categoryBar.jsp" %>
+        <%@ include file="../../common/pre/categoryBar.jsp" %>
         <!--End 商品分类详情 End-->
     </div>
 </div>
@@ -38,14 +38,14 @@
                     <c:forEach items="${productList}" var="temp">
                         <li>
                             <div class="img">
-                                <a href="${ctx}/Product?action=queryProductDetail&id=${temp.id}" target="_blank">
-                                    <img src="${ctx}/files/${temp.fileName}" width="210" height="185"/>
+                                <a href="${ctx}/Product/queryProductDetail?id=${temp.id}" target="_blank">
+                                    <img src="${ctx}/statics/files/${temp.fileName}" width="210" height="185"/>
                                 </a>
                             </div>
                             <div class="price">
                                 <font>￥<span>${temp.price}</span></font>
                             </div>
-                            <div class="name"><a href="${ctx}/Product?action=queryProductDetail&id=${temp.id}">${temp.name}</a></div>
+                            <div class="name"><a href="${ctx}/Product/queryProductDetail?id=${temp.id}">${temp.name}</a></div>
                             <div class="carbg">
                                 <a href="javascript:void(0);" class="ss" onclick="addFavorite('${temp.id}')">收藏</a>
                                 <a href="javascript:void(0);" class="j_car" onclick="addCartByParam('${temp.id}',1);">加入购物车</a>
@@ -53,14 +53,14 @@
                         </li>
                     </c:forEach>
                 </ul>
-                <%@ include file="/common/pre/pagerBar.jsp" %>
+                <%@ include file="../../common/pre/pagerBar.jsp" %>
             </div>
         </div>
     </div>
     <script>
         favoriteList();
     </script>
-    <%@ include file="/common/pre/footer.jsp" %>
+    <%@ include file="../../common/pre/footer.jsp" %>
 </div>
 </body>
 </html>

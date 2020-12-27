@@ -25,7 +25,7 @@
                 </c:choose>
             </div>
             <br>
-            <form action="${ctx}/admin/product?action=addProduct" method="post" id="productAdd" onsubmit="return checkProduct();">
+            <form action="${ctx}/admin/product/addProduct" method="post" id="productAdd" onsubmit="return checkProduct();">
 <%--            <form action="${ctx}/admin/product?action=addProduct" method="post" enctype="multipart/form-data" id="productAdd" onsubmit="return checkProduct();">--%>
             <table border="0" class="add_tab" style="width:930px;" cellspacing="0" cellpadding="0">
                 <tr>
@@ -79,7 +79,7 @@
                     <td width="135" align="right">商品图片</td>
                     <td>
                         <c:if test="${product.fileName!=null && product.fileName!=''}">
-                            <img src="${ctx}/files/${product.fileName}" width="50" height="50"/>
+                            <img src="${ctx}/statics/files/${product.fileName}" width="50" height="50"/>
                         </c:if>
                         <input type="file" class="text" name="photo" /><span></span>
                     </td>

@@ -3,25 +3,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <%@ include file="/common/pre/header.jsp" %>
+    <%@ include file="../common/pre/header.jsp" %>
     <title>易买网</title>
 </head>
 <body>
 <!--Begin Login Begin-->
 <div class="log_bg">
     <div class="top">
-        <div class="logo"><a href="${ctx}/Home?action=index"><img src="${ctx}/statics/images/logo.png"/></a></div>
+        <div class="logo"><a href="${ctx}/Home/index.html"><img src="${ctx}/statics/images/logo.png"/></a></div>
     </div>
     <div class="regist">
         <div class="log_img"><img src="${ctx}/statics/images/l_img.png" width="611" height="425"/></div>
         <div class="reg_c">
-            <form id="register" action="${ctx}/Register?action=readyRegister" method="post">
+            <form id="register" method="post">
                 <table border="0" style="width:420px; font-size:14px; margin-top:20px;" cellspacing="0" cellpadding="0">
                     <tr height="50" valign="top">
                         <td width="95">&nbsp;</td>
                         <td>
                             <span class="fl" style="font-size:24px;">注册</span>
-                            <span class="fr">已有商城账号，<a href="${ctx}/Login?action=toLogin" style="color:#ff4e00;">我要登录</a></span>
+                            <span class="fr">已有商城账号，<a href="${ctx}/Login/toLogin" style="color:#ff4e00;">我要登录</a></span>
                         </td>
                     </tr>
                     <tr height="50">
@@ -62,8 +62,7 @@
                     </tr>
                     <tr height="60">
                         <td>&nbsp;</td>
-<%--                        <td><input type="submit" value="立即注册" class="log_btn" onclick="register();"/></td>--%>
-                        <td><input type="submit" value="立即注册" class="log_btn"/></td>
+                        <td><input type="button" value="立即注册" class="log_btn" onclick="register();"/></td>
                     </tr>
                 </table>
             </form>
@@ -83,7 +82,4 @@
 </div>
 <!--End Footer End -->
 </body>
-<!--[if IE 6]>
-<script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
 </html>

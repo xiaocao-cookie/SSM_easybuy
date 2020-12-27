@@ -27,12 +27,17 @@ public class OrderServiceImpl implements OrderService {
         }else if (currentPage > page.getPageCount()){
             currentPage = page.getPageCount();
         }
-        page.setUrl("/admin/order?action=queryAllOrder");
+        page.setUrl("/admin/order/queryAllOrders");
         page.setCurrentPage(currentPage);
         List<Order> orderList = orderMapper.queryPageOrders((currentPage-1)*page.getPageSize(),page.getPageSize());
         page.setOrderList(orderList);
         return page;
     }
 
+    @Override
+    public List<Order> queryOrderById(Integer userId) {
+        List<Order> orderList = orderMapper.queryOrdersById(userId);
+        return orderList;
+    }
 
 }

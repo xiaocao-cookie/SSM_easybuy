@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <%@ include file="/common/pre/header.jsp" %>
+    <%@ include file="../../common/pre/header.jsp" %>
     <script type="text/javascript" src="${ctx}/statics/js/common/n_nav.js"></script>
     <script src="${ctx}/statics/js/cart/cart.js"></script>
     <title>易买网</title>
@@ -11,7 +11,7 @@
 <body>
 <!--Begin Header Begin-->
 <div id="searchBar">
-    <%@ include file="/common/pre/searchBar.jsp" %>
+    <%@ include file="../../common/pre/searchBar.jsp" %>
 </div>
 <!--Begin Header Begin-->
 <!--End Header End-->
@@ -19,7 +19,7 @@
 <div class="menu_bg">
     <div class="menu">
         <!--Begin 商品分类详情 Begin-->
-        <%@ include file="/common/pre/categoryBar.jsp" %>
+        <%@ include file="../../common/pre/categoryBar.jsp" %>
         <!--End 商品分类详情 End-->
     </div>
 </div>
@@ -30,8 +30,8 @@
     <div class="content">
         <div id="tsShopContainer">
             <div id="tsImgS">
-                <a href="${ctx}/files/${product.fileName}" title="Images" class="MagicZoom" id="MagicZoom">
-                    <img src="${ctx}/files/${product.fileName}" width="390" height="390"/>
+                <a href="${ctx}/statics/files/${product.fileName}" title="Images" class="MagicZoom" id="MagicZoom">
+                    <img src="${ctx}/statics/files/${product.fileName}" width="390" height="390"/>
                 </a>
             </div>
         </div>
@@ -136,7 +136,7 @@
                         </tr>
                     </table>
                     <p align="center">
-                        <img src="${ctx}/files/${product.fileName}" width="185" height="155">
+                        <img src="${ctx}/statics/files/${product.fileName}" width="185" height="155">
                     </p>
                 </div>
             </div>
@@ -146,7 +146,7 @@
         favoriteList();
     </script>
     <!--End 弹出层-收藏成功 End-->
-    <%@ include file="/common/pre/footer.jsp" %>
+    <%@ include file="../../common/pre/footer.jsp" %>
     <!--Begin 弹出层-加入购物车 Begin-->
 </div>
 </body>

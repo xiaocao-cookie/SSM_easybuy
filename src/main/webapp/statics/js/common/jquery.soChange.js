@@ -1,9 +1,3 @@
-/*
- *	soChange 1.6 - simple object change with jQuery
- *	made by bujichong 2010-10-16
- *	作者：不羁虫  2010-10-16
- * http://hi.baidu.com/bujichong/
- */
 ;(function($){
 	$.fn.extend({
 		"soChange": function(o){

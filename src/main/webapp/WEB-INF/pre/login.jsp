@@ -16,18 +16,18 @@
 <!--Begin Login Begin-->
 <div class="log_bg">	
     <div class="top">
-        <div class="logo"><a href="${ctx}/Home?action=index"><img src="${ctx}/statics/images/logo.png" /></a></div>
+        <div class="logo"><a href="${ctx}/Home/index.html"><img src="${ctx}/statics/images/logo.png" /></a></div>
     </div>
 	<div class="login">
     	<div class="log_img"><img src="${ctx}/statics/images/l_img.png" width="611" height="425" /></div>
 		<div class="log_c">
-        	<form action="${ctx}/Login?action=readyLogin" method="post">
+        	<form action="${ctx}/Login/login" method="post">
             <table border="0" style="width:370px; font-size:14px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr height="50" valign="top">
               	<td width="55">&nbsp;</td>
                 <td>
                 	<span class="fl" style="font-size:24px;">登录</span>
-                    <span class="fr">还没有商城账号，<a href="${ctx}/Register?action=toRegister" style="color:#ff4e00;">立即注册</a></span>
+                    <span class="fr">还没有商城账号，<a href="${ctx}/Register/toRegister" style="color:#ff4e00;">立即注册</a></span>
                 </td>
               </tr>
               <tr height="70">

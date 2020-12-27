@@ -37,7 +37,7 @@ public class NewsServiceImpl  implements NewsService {
         }else if(currentPage > page.getPageCount()){
             currentPage = page.getPageCount();
         }
-        page.setUrl("admin/news?action=queryNewsList");
+        page.setUrl("admin/news/queryNewsList");
         page.setCurrentPage(currentPage);
         List<News> newsList = newsMapper.queryPageNews((currentPage-1)*page.getPageSize(),page.getPageSize());
         page.setNewsList(newsList);

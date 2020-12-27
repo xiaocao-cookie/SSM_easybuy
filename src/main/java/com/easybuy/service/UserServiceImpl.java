@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
         }else if(currentPage > page.getPageCount()){
             currentPage = page.getPageCount();
         }
-        page.setUrl("/admin/user?action=queryUserList");
+        page.setUrl("/admin/user/queryUserList");
         page.setCurrentPage(currentPage);
         List<User> userList = userMapper.queryPageUser((currentPage-1)*page.getPageSize(),page.getPageSize());
         page.setUserList(userList);

@@ -14,4 +14,9 @@
     <select id="queryTotalCounts" resultType="java.lang.Integer">
         SELECT count(1) FROM easybuy_order
     </select>
+
+    <select id="queryOrdersById" resultType="com.easybuy.entity.Order">
+        SELECT * FROM easybuy_order where userid = #{userId}
+    </select>
+
 </mapper>

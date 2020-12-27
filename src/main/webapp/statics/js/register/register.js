@@ -1,5 +1,5 @@
 /**
- * Created by wlg on 2018/4/27.
+ * Created by CJW on 2020/12/24.
  */
 function register() {
     //获取相关字段的值
@@ -44,40 +44,38 @@ function register() {
     }
     //验证邮箱格式
     if(email!=null && email!="" && !checkMail(email)){
-    	showMessage("邮箱格式不正确");
+        showMessage("邮箱格式不正确");
         return;
     }
     //验证邮箱格式
     if(mobile!=null && mobile!="" && !checkMobile(mobile)){
-    	showMessage("手机格式不正确");
+        showMessage("手机格式不正确");
         return;
     }
-     //验证邮箱格式
+    //验证邮箱格式
     if(identityCode!=null && identityCode!="" && !checkIdentityCode(identityCode)){
-    	showMessage("身份证号格式不正确");
+        showMessage("身份证号格式不正确");
         return;
     }
-    
+
     $.ajax({
-        url: contextPath + "/Register",
+        url: contextPath + "/Register/register",
         method: "post",
         data: {
-            action: "login",
             loginName: loginName,
             userName: userName,
             password: password,
             sex: sex,
             email: email,
             mobile: mobile,
-            action: 'saveUserToDatabase',
             identityCode: identityCode,
-            address: address
+            // address: address
         },
         success: function (jsonStr) {
             var result = eval("(" + jsonStr + ")");
             if (result.status == 1) {
                 showMessage(result.message);
-                window.location.href = contextPath + "/Login?action=toLogin";
+                window.location.href = contextPath + "/Login/toLogin";
             } else {
                 showMessage(result.message);
             }
@@ -87,27 +85,27 @@ function register() {
 
 
 function checkMail(mail) {
-  var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  if (filter.test(mail)) 
-	  return true;
-  else {
-	 return false;}
+    var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (filter.test(mail))
+        return true;
+    else {
+        return false;}
 }
 
 function checkMobile(phone) {
-  var filter  = /^\d{5,11}$/;
-  if (filter.test(phone)) 
-	  return true;
-  else {
-	 return false;
-  }
+    var filter  = /^\d{5,11}$/;
+    if (filter.test(phone))
+        return true;
+    else {
+        return false;
+    }
 }
 
 function checkIdentityCode(identityCode) {
-	  var filter  = /^\w{18}$/;
-	  if (filter.test(identityCode)) 
-		  return true;
-	  else {
-		 return false;
-	  }
+    var filter  = /^\w{18}$/;
+    if (filter.test(identityCode))
+        return true;
+    else {
+        return false;
+    }
 }

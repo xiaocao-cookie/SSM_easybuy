@@ -85,16 +85,16 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
           <c:if test="${sessionScope.loginUser==null}">
-            <span class="fl">你好，请<a href="${ctx}/Login?action=toLogin"  style="color:#ff4e00;">登录</a>&nbsp;<a href="${ctx}/Register?action=toRegister" style="color:#ff4e00;">免费注册</a>&nbsp;&nbsp;</span>
+            <span class="fl">你好，请<a href="${ctx}/Login/toLogin"  style="color:#ff4e00;">登录</a>&nbsp;<a href="${ctx}/Register/toRegister" style="color:#ff4e00;">免费注册</a>&nbsp;&nbsp;</span>
           </c:if>
           <c:if test="${sessionScope.loginUser!=null}">
-            <span class="fl"><a href="${ctx}/admin/user?action=index">${sessionScope.loginUser.userName}</a>&nbsp;|&nbsp;<a href="${ctx}/admin/order?action=index&userId=${sessionScope.loginUser.id}">我的订单</a>&nbsp;</span>
+            <span class="fl"><a href="${ctx}/admin/user/personalUserInfo">${sessionScope.loginUser.userName}</a>&nbsp;|&nbsp;<a href="${ctx}/admin/order?action=index&userId=${sessionScope.loginUser.id}">我的订单</a>&nbsp;</span>
           </c:if>
            <c:if test="${sessionScope.loginUser!=null && sessionScope.loginUser.type==1}">
-            <span class="fl">|&nbsp;<a href="${ctx}/admin/product?action=index&userId=${sessionScope.loginUser.id}">后台管理</a>&nbsp;</span>
+            <span class="fl">|&nbsp;<a href="${ctx}/admin/product/index.html?userId=${sessionScope.loginUser.id}">后台管理</a>&nbsp;</span>
           </c:if>
            <c:if test="${sessionScope.loginUser!=null}">
-             <span class="fl">|&nbsp;<a href="${ctx}/Login?action=loginOut" >注销</a></span>
+             <span class="fl">|&nbsp;<a href="${ctx}/Login/loginOut" >注销</a></span>
           </c:if>
         </span>
   </div>

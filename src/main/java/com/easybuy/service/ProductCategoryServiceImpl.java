@@ -32,7 +32,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         }else if(currentPage > page.getPageCount()){
             currentPage = page.getPageCount();
         }
-        page.setUrl("admin/productCategory?action=index");
+        page.setUrl("admin/productCategory/index.html");
         page.setCurrentPage(currentPage);
         List<ProductCategory> proCategoryList = productCategoryMapper.queryPageProCategory((currentPage-1)*page.getPageSize(),page.getPageSize());
         page.setProCategoryList(proCategoryList);

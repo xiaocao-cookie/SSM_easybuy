@@ -14,4 +14,6 @@ public interface OrderMapper {
     );
 
     public int queryTotalCounts();
+
+    public List<Order> queryOrdersById(Integer userId);
 }

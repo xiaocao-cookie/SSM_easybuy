@@ -1,6 +1,3 @@
-/**
- * Created by wlg on 2018/4/27.
- */
 //登录的方法
 function login(){
     var loginName=$("#loginName").val();

@@ -27,12 +27,12 @@
         <c:forEach items="${orderDetailList}" var="temp">
           <tr>
             <td>
-              <a href="${ctx}/Product?action=queryProductDetail&id=${temp.product.id}" target="_blank">
+              <a href="${ctx}/Product/queryProductDetail?id=${temp.product.id}" target="_blank">
               ${temp.product.name}
               </a>
             </td>
             <td>
-              <img src="${ctx}/files/${temp.product.fileName}" width="50" height="50">
+              <img src="${ctx}/statics/files/${temp.product.fileName}" width="50" height="50">
             </td>
             <td>${temp.quantity}</td>
             <td>${temp.cost}</td>

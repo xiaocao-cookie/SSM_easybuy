@@ -21,10 +21,10 @@
                             <c:forEach items="${temp.productCategoryVoList}" var="vo">
                                 <div class="zj_l_c">
                                     <h2>
-                                        <a href="${ctx}/Product?action=queryProductList&category=${vo.productCategory.id}&level=2">${vo.productCategory.name}</a>
+                                        <a href="${ctx}/Product/queryProductList?category=${vo.productCategory.id}&level=2">${vo.productCategory.name}</a>
                                     </h2>
                                     <c:forEach items="${vo.productCategoryVoList}" var="vo2">
-                                        <a href="${ctx}/Product?action=queryProductList&category=${vo2.productCategory.id}&level=3">${vo2.productCategory.name}</a>
+                                        <a href="${ctx}/Product/queryProductList?category=${vo2.productCategory.id}&level=3">${vo2.productCategory.name}</a>
                                     </c:forEach>
                                 </div>
                             </c:forEach>
@@ -36,9 +36,9 @@
     </div>
 </div>
 <ul class="menu_r">
-    <li><a href="${ctx}/Home?action=index">首页</a></li>
+    <li><a href="${ctx}/Home/index.html">首页</a></li>
     <c:forEach items="${productCategoryVoList}" var="temp">
-        <li><a href="${ctx}/Product?action=queryProductList&level=1&category=${temp.productCategory.id}">${temp.productCategory.name}</a></li>
+        <li><a href="${ctx}/Product/queryProductList?level=1&category=${temp.productCategory.id}">${temp.productCategory.name}</a></li>
     </c:forEach>
 </ul>
 <div class="m_ad">中秋送好礼！</div>
