@@ -144,6 +144,21 @@
     </div>
     <script>
         favoriteList();
+        //点击商品规格按钮实现切换
+        var des_choice = $('.des_choice ul li');
+        des_choice.click(function () {
+            if ($(this).hasClass('checked')) {
+                $(this).removeClass('checked');
+            } else {
+                var lis = $(this).siblings();
+                if (lis.hasClass('checked')) {
+                    lis.removeClass('checked');
+                    $(this).addClass('checked');
+                } else {
+                    $(this).addClass('checked');
+                }
+            }
+        });
     </script>
     <!--End 弹出层-收藏成功 End-->
     <%@ include file="../../common/pre/footer.jsp" %>

@@ -26,7 +26,7 @@
             </div>
             <br>
             <form action="${ctx}/admin/product/addProduct" method="post" id="productAdd" onsubmit="return checkProduct();">
-<%--            <form action="${ctx}/admin/product?action=addProduct" method="post" enctype="multipart/form-data" id="productAdd" onsubmit="return checkProduct();">--%>
+<%--            <form action="${ctx}/admin/product/addProduct" method="post" enctype="multipart/form-data" id="productAdd" onsubmit="return checkProduct();">--%>
             <table border="0" class="add_tab" style="width:930px;" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="135" align="right">一级分类</td>

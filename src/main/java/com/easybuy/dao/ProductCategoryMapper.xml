@@ -6,8 +6,9 @@
     namespace:放的是接口的全限定列名，也就是../*Mapper
 -->
 <mapper namespace="com.easybuy.dao.ProductCategoryMapper">
-
-
+    <delete id="deleteProductCategoryById">
+        DELETE FROM easybuy_product_category WHERE id = #{id}
+    </delete>
     <select id="queryAllCategory" resultType="com.easybuy.entity.ProductCategory">
         SELECT * FROM easybuy_product_category
     </select>
@@ -25,5 +26,8 @@
     </select>
     <select id="queryType" resultType="com.easybuy.entity.ProductCategory">
         SELECT * FROM `easybuy_product_category` WHERE parentId = #{parentId}
+    </select>
+    <select id="queryTypeById" resultType="java.lang.Integer">
+        SELECT type FROM easybuy_product_category WHERE id = #{id}
     </select>
 </mapper>

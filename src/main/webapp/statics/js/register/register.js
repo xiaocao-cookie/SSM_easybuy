@@ -69,7 +69,6 @@ function register() {
             email: email,
             mobile: mobile,
             identityCode: identityCode,
-            // address: address
         },
         success: function (jsonStr) {
             var result = eval("(" + jsonStr + ")");
@@ -78,6 +77,7 @@ function register() {
                 window.location.href = contextPath + "/Login/toLogin";
             } else {
                 showMessage(result.message);
+                window.location.reload();
             }
         }
     })

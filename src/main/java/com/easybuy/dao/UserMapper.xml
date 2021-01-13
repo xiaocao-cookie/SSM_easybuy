@@ -6,14 +6,30 @@
     namespace:放的是接口的全限定列名，也就是../*Mapper
 -->
 <mapper namespace="com.easybuy.dao.UserMapper">
-    <insert id="addUser">
+    <insert id="registerUser">
         insert into easybuy_user
         (loginName, userName, password,
         sex, identityCode,  email,  mobile, type)
         values(#{loginName}, #{userName}, #{password},
         #{sex}, #{identityCode},  #{email},  #{mobile}, 0)
     </insert>
-
+    <insert id="addUser">
+        insert into easybuy_user
+        (loginName, userName, password,
+        sex, identityCode,  email,  mobile, type)
+        values(#{loginName}, #{userName}, #{password},
+        #{sex}, #{identityCode},  #{email},  #{mobile}, #{type})
+    </insert>
+    <update id="updateUserById">
+        UPDATE easybuy_user
+        SET `loginName` = #{loginName}, `userName` = #{userName}, `sex` = #{sex},
+         `identityCode` = #{identityCode}, `email` = #{email},
+         `mobile` = #{mobile}, `type` = #{type}
+         WHERE `id` = #{id};
+    </update>
+    <delete id="deleteUserById">
+        DELETE FROM easybuy_user WHERE id = #{id}
+    </delete>
     <select id="queryAllUser" resultType="com.easybuy.entity.User">
         select * from easybuy_user
     </select>
@@ -26,5 +42,8 @@
     </select>
     <select id="queryTotalCounts" resultType="java.lang.Integer">
         select count(1) from easybuy_user
+    </select>
+    <select id="queryUserById" resultType="com.easybuy.entity.User">
+        SELECT * FROM easybuy_user WHERE id = #{id}
     </select>
 </mapper>

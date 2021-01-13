@@ -1,16 +1,14 @@
 //分类添加
 function toAddProductCategory() {
-    $.ajax({
-        url: contextPath + "/admin/productCategory",
-        method: "post",
-        data: {
-            action: "toAddProductCategory"
-        },
-        success: function (jsonStr) {
-            $("#addProductCategory").html(jsonStr);
-            $("input[name=select]").removeAttr("checked");
-        }
-    });
+    $("#addProductCategory").show();
+    // $.ajax({
+    //     url: contextPath + "/admin/productCategory/toAddProductCategory",
+    //     method: "post",
+    //     success: function (jsonStr) {
+    //         $("#addProductCategory").html(jsonStr);
+    //         $("input[name=select]").removeAttr("checked");
+    //     }
+    // });
 }
 function addProductCategory() {
     var productCategoryLevel1 = $("#productCategoryLevel1").val();
@@ -36,6 +34,7 @@ function addProductCategory() {
         }
     });
 }
+
 //查询下级分类
 function queryProductCategoryList(obj, selectId) {
     var parentId = $(obj).val();
@@ -123,21 +122,22 @@ function selectProductCategoryLevel(obj) {
         $('#productCategoryLevel2').parent().parent().show();
     }
 }
+
 //删除商品分类
 function deleteProductCategory(id,type) {
  var bool=window.confirm("确认删除此分类信息么?");
 	if(bool){
 		$.ajax({
-	        url: contextPath + "/admin/productCategory",
+	        url: contextPath + "/admin/productCategory/deleteProductCategory",
 	        method: "post",
 	        data: {
 	            id: id,
 	            type: type,
-	            action: "deleteProductCategory"
 	        },
 	        success: function (jsonStr) {
 	            var result = eval("(" + jsonStr + ")");
 	            if (result.status == 1) {
+	                showMessage(result.message);
 	                window.location.reload();
 	            }else{
 	            	showMessage(result.message);
@@ -146,7 +146,8 @@ function deleteProductCategory(id,type) {
 	    });
 	}
 }
-//商品发布的是很检查相关字段
+
+//商品发布
 function checkProduct() {
     var productCategoryLevel1 = $("#productCategoryLevel1").val();
     var productCategoryLevel2 = $("#productCategoryLevel2").val();
@@ -175,7 +176,8 @@ function checkProduct() {
         return false;
     }
 }
-//检查用户
+
+//删除商品信息
 function deleteById(id) {
 	var bool=window.confirm("确认删除此商品信息么?");
 	if(bool){
@@ -267,11 +269,10 @@ function addUser() {
     var id = $("input[name='id']").val();
     var password = $("input[name='password']").val();
     $.ajax({
-        url: contextPath + "/admin/user",
+        url: contextPath + "/admin/user/updateUser",
         method: "post",
         data: {
            id: id,
-           action: "updateUser",
            loginName: loginName,
            userName: userName,
            identityCode: identityCode,
@@ -283,7 +284,8 @@ function addUser() {
         success: function (jsonStr) {
             var result = eval("(" + jsonStr + ")");
             if (result.status == 1) {
-                window.location.href=contextPath+"/admin/user?action=queryUserList";
+                showMessage(result.message);
+                window.location.href=contextPath+"/admin/user/queryUserList";
             }else{
             	showMessage(result.message);
             }
@@ -296,22 +298,24 @@ function addUser() {
  */
 function deleteUserId(id) {
 	var bool=window.confirm("确认删除此用户信息么?");
-	if(bool){
-		$.ajax({
-	        url: contextPath + "/admin/user",
-	        method: "post",
-	        data: {
-	            id: id,
-	            action: "deleteUserById"
-	        },
-	        success: function (jsonStr) {
-	            var result = eval("(" + jsonStr + ")");
-	            if (result.status == 1) {
-	                window.location.reload();
-	            }
-	        }
-	    });
-	}
+    if(bool){
+        $.ajax({
+            url: contextPath + "/admin/user/deleteUserById",
+            method: "post",
+            data: {
+                id: id,
+            },
+            success: function (jsonStr) {
+                var result = eval("(" + jsonStr + ")");
+                if (result.status == 1) {
+                    showMessage(result.message);
+                    window.location.reload();
+                }else {
+                    showMessage(result.message);
+                }
+            }
+        });
+    }
 }
 
 
@@ -340,3 +344,5 @@ function checkIdentityCode(identityCode) {
 	 return false;
   }
 }
+
+

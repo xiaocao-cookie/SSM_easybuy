@@ -22,7 +22,7 @@
         <c:forEach items="${orderList}" var="temp">
           <tr class="td_bg">
             <td>用户名:${temp.loginName}</td>
-            <td><a href="${ctx}/admin/order/queryOrderDeatil?orderId=${temp.id}">订单号:${temp.serialNumber}</a></td>
+            <td><a href="${ctx}/admin/order/queryOrderDetail?orderId=${temp.id}">订单号:${temp.serialNumber}</a></td>
             <td>地址:${temp.userAddress}</td>
             <td>￥${temp.cost}</td>
           </tr>

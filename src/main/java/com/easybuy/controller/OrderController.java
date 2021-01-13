@@ -70,4 +70,17 @@ public class OrderController {
         model.addAttribute("pager",pager);
         return "backend/order/orderList";
     }
+
+    //订单详情列表
+    @RequestMapping("/queryOrderDetail")
+    public String queryOrderDetails(@RequestParam("orderId") Integer orderId
+                                    ,Model model){
+        List<OrderDetail> orderDetailList = orderDetailService.queryOrderDetailByOrderId(orderId);
+        for (OrderDetail orderDetail : orderDetailList) {
+            Product product = productService.queryProductById(orderDetail.getProductId());
+            orderDetail.setProduct(product);
+        }
+        model.addAttribute("orderDetailList",orderDetailList);
+        return "backend/order/orderDetailList";
+    }
 }

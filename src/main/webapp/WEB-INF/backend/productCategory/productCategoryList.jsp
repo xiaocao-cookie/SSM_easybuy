@@ -54,8 +54,8 @@
         </tbody>
       </table>
       <%@ include file="/WEB-INF/common/pre/pagerBar.jsp" %>
-      <div id="addProductCategory">
-
+      <div id="addProductCategory" style="display: none">
+        <%@include file="toAddProductCategory.jsp"%>
       </div>
     </div>
   </div>
@@ -63,5 +63,3 @@
 </div>
 </body>
 </html>
-
-

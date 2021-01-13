@@ -16,7 +16,7 @@
         <div class="m_right" id="content">
             <div class="mem_tit">用户列表</div>
             <p align="right">
-                <a href="${ctx}/admin/user?action=toAddUser"  class="add_b">添加用户</a>
+                <a href="${ctx}/admin/user/toAddUser"  class="add_b">添加用户</a>
                 <br>
             </p>
             <br>
@@ -55,11 +55,11 @@
                             </c:choose>
                         </td>
                         <td>
-                            <a href="${ctx}/admin/user?action=toUpdateUser&id=${temp.id}">修改</a>
+                            <a href="${ctx}/admin/user/toUpdateUser?id=${temp.id}">修改</a>
                         </td>
                         <td>
                         	<c:if test="${sessionScope.loginUser.id!=temp.id}">
-                           	 <a href="javascript:void(0);" onclick="deleteUserId('${temp.id}');" target="_blank">删除</a>
+                           	 <a href="javascript:void(0);" onclick="deleteUserId('${temp.id}');">删除</a>
                         	</c:if>
                         </td>
                     </tr>

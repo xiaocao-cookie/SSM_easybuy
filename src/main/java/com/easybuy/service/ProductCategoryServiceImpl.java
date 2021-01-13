@@ -96,4 +96,28 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         
         return proCategory1VoList;
     }
+
+    //删除商品分类
+    @Override
+    public int deleteProductCategoryById(Integer id) {
+        //先判断是几级分类
+        int type = productCategoryMapper.queryTypeById(id);
+        List<Product> productList1 = new ArrayList<>();
+        List<Product> productList2 = new ArrayList<>();
+        List<Product> productList3 = new ArrayList<>();
+        //在判断此分类下是否有产品
+        if (type == 1){
+            productList1 = productMapper.queryProductsByCate1Id(id);
+        }else if (type == 2){
+            productList2 = productMapper.queryProductsByCate1Id(id);
+        }else if (type == 3){
+            productList3 = productMapper.queryProductsByCate1Id(id);
+        }
+        int i = 0;
+        //三个集合均为空时，才可删除此分类
+        if (productList1.size() == 0 && productList2.size() ==0 && productList3.size() ==0 ){
+            i = productCategoryMapper.deleteProductCategoryById(id);
+        }
+        return i;
+    }
 }

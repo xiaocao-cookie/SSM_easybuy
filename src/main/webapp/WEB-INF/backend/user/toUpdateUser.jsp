@@ -25,7 +25,7 @@
                 </c:choose>
             </div>
             <br>
-            <form action="${ctx}/admin/user?action=updateUser" method="post" id="userAdd" onsubmit="return checkUser();">
+            <form action="${ctx}/admin/user/updateUser" method="post" id="userAdd" onsubmit="return checkUser();">
                 <table border="0" class="add_tab" style="width:930px;" cellspacing="0" cellpadding="0">
                     <tr>
                         <td width="135" align="right">用户姓名</td>
@@ -40,13 +40,22 @@
                             <input type="text" value="${user.userName}" class="add_ipt" name="userName"/>
                         </td>
                     </tr>
+                    <tr>
+                        <td width="135" align="right">性别</td>
+                        <td>
+                            <select name="sex">
+                                <option value="1" <c:if test="${user.sex==1}">selected="selected"</c:if>>男</option>
+                                <option value="0" <c:if test="${user.sex==0}">selected="selected"</c:if>>女</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="135" align="right">密码</td>
+                        <td>
+                            <input type="password" value="${user.password}" class="add_ipt" name="password"/>
+                        </td>
+                    </tr>
                     <c:if test="${empty user.id ||  user.id==0}">
-                        <tr>
-                            <td width="135" align="right">密码</td>
-                            <td>
-                                <input type="password" value="" class="add_ipt" name="password"/>
-                            </td>
-                        </tr>
                         <tr>
                             <td width="135" align="right">确认密码</td>
                             <td>
@@ -87,10 +96,10 @@
                         <td>
                             <c:choose>
                                 <c:when test="${empty user.id || user.id==0}">
-                                    <input type="button" value="添加用户" class="s_btn" onclick="addUser();">
+                                    <input type="submit" value="添加用户" class="s_btn">
                                 </c:when>
                                 <c:otherwise>
-                                    <input type="button" value="修改信息" class="s_btn"  onclick="addUser();">
+                                    <input type="submit" value="修改信息" class="s_btn">
                                 </c:otherwise>
                             </c:choose>
                         </td>

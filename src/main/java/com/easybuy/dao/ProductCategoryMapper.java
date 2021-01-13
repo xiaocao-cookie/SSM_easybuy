@@ -21,4 +21,8 @@ public interface ProductCategoryMapper {
     public List<ProductCategory> queryAllCategory();
     //通过父级id查分类名
     public List<ProductCategory> queryType(int parentId);
+    //删除分类
+    public int deleteProductCategoryById(Integer id);
+    //根据id查询是几级分类
+    public int queryTypeById(Integer id);
 }

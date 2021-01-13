@@ -17,4 +17,6 @@ public interface ProductCategoryService {
     //查询商品所有分类集合
     //也就是首页的左侧边栏的商品分类一级各个一级分类下的产品信息
     public List<ProductCategoryVo> queryAllCategories();
+    //删除分类
+    public int deleteProductCategoryById(Integer id);
 }

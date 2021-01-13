@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public int addUser(User user) {
-       int i = userMapper.addUser(user);
+    public int registerUser(User user) {
+       int i = userMapper.registerUser(user);
        return i;
     }
 
@@ -51,6 +51,30 @@ public class UserServiceImpl implements UserService {
         List<User> userList = userMapper.queryPageUser((currentPage-1)*page.getPageSize(),page.getPageSize());
         page.setUserList(userList);
         return page;
+    }
+
+    @Override
+    public int deleteUserById(Integer id) {
+        int i = userMapper.deleteUserById(id);
+        return i;
+    }
+
+    @Override
+    public int addUser(User user) {
+        int i = userMapper.addUser(user);
+        return i;
+    }
+
+    @Override
+    public int updateUser(User user) {
+        int i = userMapper.updateUserById(user);
+        return i;
+    }
+
+    @Override
+    public User queryUserById(Integer id) {
+        User user = userMapper.queryUserById(id);
+        return user;
     }
 
 }

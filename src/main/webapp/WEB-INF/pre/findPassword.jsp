@@ -21,37 +21,33 @@
 	<div class="login">
     	<div class="log_img"><img src="${ctx}/statics/images/l_img.png" width="611" height="425" /></div>
 		<div class="log_c">
-        	<form action="${ctx}/Login/login" method="post">
+        	<form method="post">
             <table border="0" style="width:370px; font-size:14px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr height="50" valign="top">
               	<td width="55">&nbsp;</td>
                 <td>
-                	<span class="fl" style="font-size:24px;">登录</span>
+                	<span class="fl" style="font-size:24px;">找回密码</span>
                     <span class="fr">还没有商城账号，<a href="${ctx}/Register/toRegister" style="color:#ff4e00;">立即注册</a></span>
                 </td>
               </tr>
               <tr height="70">
-                <td>用户名</td>
+                <td>登录名</td>
                 <td><input type="text" name="loginName" id="loginName" value="" class="l_user" /></td>
-              </tr>
-              <tr height="70">
-                <td>密&nbsp; &nbsp; 码</td>
-                <td><input type="password" name="password" id="password" value="" class="l_pwd" /></td>
-              </tr>
-              <tr>
-                  <td>&nbsp;</td>
-                  <td style="text-align: center">忘记密码?<a href="${ctx}/Login/toFindPassword" style="color:#ff4e00;">去找回>></a></td>
               </tr>
               <tr height="60">
               	<td>&nbsp;</td>
-                <td><input type="submit" value="登录" class="log_btn" onclick="login();" /></td>
+                <td><input type="button" value="找回密码" class="log_btn" onclick="findPassword();" /></td>
               </tr>
+                <tr height="70" style="display: none">
+                    <td>密&nbsp; &nbsp; 码</td>
+                    <td><input type="text" name="password" id="password" value="" class="l_pwd" /></td>
+                </tr>
             </table>
             </form>
         </div>
     </div>
 </div>
-<!--End Login End--> 
+<!--End Login End-->
 <!--Begin Footer Begin-->
 <div class="btmbg">
     <div class="btm">
@@ -61,7 +57,4 @@
 </div>
 <!--End Footer End -->
 </body>
-<!--[if IE 6]>
-<script src="letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
 </html>

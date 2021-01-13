@@ -838,7 +838,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now {
     left: 0;
     z-index: 1;
     opacity: .8;
-    *filter: alpha(opacity=80)
+    *filter: alpha(opacity = 80)
 }
 
 .banner .slide_info_card .slide_info_card_text {
