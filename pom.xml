@@ -116,7 +116,7 @@
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
       <version>1.14</version>
-      <scope>provided</scope>
+<!--      <scope>provided</scope>-->
     </dependency>
     <!-- 文件上传   -->
     <dependency>

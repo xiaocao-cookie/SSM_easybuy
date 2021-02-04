@@ -120,4 +120,10 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         }
         return i;
     }
+
+    @Override
+    public List<Product> queryProductByCategoryId(Integer id) {
+        List<Product> productList = productCategoryMapper.queryProductByCategoryId(id);
+        return productList;
+    }
 }

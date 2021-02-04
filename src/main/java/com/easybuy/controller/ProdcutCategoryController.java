@@ -1,5 +1,6 @@
 package com.easybuy.controller;
 
+import com.easybuy.entity.Product;
 import com.easybuy.entity.ProductCategory;
 import com.easybuy.service.ProductCategoryService;
 import com.easybuy.util.Page;
@@ -37,13 +38,19 @@ public class ProdcutCategoryController {
                                       @RequestParam("type") Integer type,
                                       HttpServletResponse response)
                                       throws Exception{
-        int i = proCategoryService.deleteProductCategoryById(id);
+        List<Product> productList = proCategoryService.queryProductByCategoryId(id);
         PrintWriter out = response.getWriter();
-        if (i > 0){
-            out.println("{'status':'1','message':'删除成功'}");
-        }else {
-            out.println("{'status':'2','message':'该分类下仍有商品'}");
+        if (productList == null || "".equals(productList)){
+            int i = proCategoryService.deleteProductCategoryById(id);
+            if (i > 0){
+                out.println("{'status':'1','message':'删除成功'}");
+            }else {
+                out.println("{'status':'2','message':'删除失败'}");
+            }
+        }else{
+             out.println("{'status':'2','message':'删除失败，该分类下仍有商品'}");
         }
+
     }
 
 //    //分类管理之准备添加

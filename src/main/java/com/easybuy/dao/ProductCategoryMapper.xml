@@ -30,4 +30,7 @@
     <select id="queryTypeById" resultType="java.lang.Integer">
         SELECT type FROM easybuy_product_category WHERE id = #{id}
     </select>
+    <select id="queryProductByCategoryId" resultType="com.easybuy.entity.Product">
+        SELECT * FROM `easybuy_product` p,`easybuy_product_category` c WHERE p.categoryLevel3Id = #{id}
+    </select>
 </mapper>

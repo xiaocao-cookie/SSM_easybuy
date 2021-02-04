@@ -1,5 +1,6 @@
 package com.easybuy.dao;
 
+import com.easybuy.entity.Product;
 import com.easybuy.entity.ProductCategory;
 import com.easybuy.entity.ProductCategory;
 import org.apache.ibatis.annotations.Param;
@@ -25,4 +26,6 @@ public interface ProductCategoryMapper {
     public int deleteProductCategoryById(Integer id);
     //根据id查询是几级分类
     public int queryTypeById(Integer id);
+    //通过id查询分类下的商品
+    public List<Product> queryProductByCategoryId(Integer id);
 }
