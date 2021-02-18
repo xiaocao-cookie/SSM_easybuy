@@ -49,7 +49,7 @@
 <%--    中间图片上的首页中的一级类  --%>
         <ul class="menu_r">
             <li><a href="${ctx}/Home/index.html">首页</a></li>
-            <c:forEach items="${productCategoryVoList}" var="temp">
+            <c:forEach items="${productCategoryVoList}" var="temp" begin="0" step="1" end="5">
                 <li><a href="${ctx}/Product/queryProductList?level=1&category=${temp.productCategory.id}">${temp.productCategory.name}</a></li>
             </c:forEach>
         </ul>
@@ -66,8 +66,8 @@
                 <ul class="slide_box bxslider">
                     <%-- 三张轮播图  --%>
                     <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
-                    <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
-                    <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
+                    <li><img src="${ctx}/statics/images/ban2.jpg" width="740" height="401"/></li>
+                    <li><img src="${ctx}/statics/images/ban3.jpg" width="740" height="401"/></li>
                 </ul>
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
@@ -141,12 +141,8 @@
                 <div class="fre_ban">
                     <div id="imgPlay1">
                         <ul class="imgs" id="actor1">
-                            <li><a href="#"><img src="${ctx}/statics/images/fre_r.jpg" width="211" height="286"/></a></li>
-                            <li><a href="#"><img src="${ctx}/statics/images/fre_r.jpg" width="211" height="286"/></a></li>
-                            <li><a href="#"><img src="${ctx}/statics/images/fre_r.jpg" width="211" height="286"/></a></li>
+                            <li><a href="#"><img src="${ctx}/statics/images/common.png" width="211" height="286"/></a></li>
                         </ul>
-                        <div class="prevf">上一张</div>
-                        <div class="nextf">下一张</div>
                     </div>
                 </div>
                 <div class="fresh_txt">

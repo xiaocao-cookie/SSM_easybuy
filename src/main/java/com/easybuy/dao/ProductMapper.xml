@@ -47,4 +47,7 @@
     <select id="queryProductsByCate3Id" resultType="com.easybuy.entity.Product">
         SELECT * FROM `easybuy_product` WHERE categoryLevel3Id = #{categoryLevel3Id}
     </select>
+    <select id="searchProduct" resultType="com.easybuy.entity.Product">
+        SELECT * FROM `easybuy_product` WHERE `name` LIKE concat('%',#{name},'%')
+    </select>
 </mapper>

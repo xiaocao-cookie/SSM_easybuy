@@ -11,7 +11,7 @@
     	<span class="s_city_b">
         	<span class="fl">送货至：</span>
             <span class="s_city">
-            	<span>四川</span>
+            	<span id="s_City">四川</span>
                 <div class="s_city_bg">
                   <div class="s_city_t"></div>
                   <div class="s_city_c">
@@ -117,6 +117,7 @@
     </div>
   </div>
 </div>
+
 <link type="text/css" rel="stylesheet" href="${ctx}/statics/css/style.css"/>
 <script type="text/javascript" src="${ctx}/statics/js/common/jquery-1.11.1.min_044d0927.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/common/jquery.bxslider_e88acd1b.js"></script>
@@ -141,3 +142,12 @@
 <script type="text/javascript" src="${ctx}/statics/js/common/p_tab.js"></script>
 <script type="text/javascript" src="${ctx}/statics/js/common/shade.js"></script>
 
+<%--  选择左上角的城市切换  --%>
+<script type="text/javascript">
+  $(".c_h span").click(function () {
+    $(".c_h span").removeClass("c_check");
+    $(this).addClass("c_check");
+    $("#s_City").html($(this).html());
+    console.log($(this).html());
+  })
+</script>

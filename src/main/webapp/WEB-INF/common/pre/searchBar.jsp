@@ -9,8 +9,8 @@
         <a href="${ctx}/Home/index.html"><img src="${ctx}/statics/images/logo.png"></a>
     </div>
     <div class="search">
-        <form action="${ctx}/Product/queryProductList" method="post">
-            <input type="text" value="${keyWord}" name="keyWord" class="s_ipt">
+        <form action="${ctx}/Product/searchProduct" method="post">
+            <input type="text" value="${keyWord}" name="keyWord" class="s_ipt" placeholder="华为">
             <input type="submit" value="搜索" class="s_btn">
         </form>
         <!--推荐最热商品-->

@@ -26,4 +26,6 @@ public interface ProductService {
     public List<Product> queryProductsByCate2Id(int categoryLevel2Id);
     //通过第3分类来查询商品信息
     public List<Product> queryProductsByCate3Id(int categoryLevel3Id);
+    //模糊查询(搜索栏搜索)
+    public List<Product> searchProduct(String keyWord);
 }

@@ -91,4 +91,10 @@ public class ProductServiceImpl implements ProductService {
         List<Product> productList =productMapper.queryProductsByCate3Id(categoryLevel3Id);
         return productList;
     }
+
+    @Override
+    public List<Product> searchProduct(String keyWord) {
+        List<Product> productList = productMapper.searchProduct(keyWord);
+        return productList;
+    }
 }

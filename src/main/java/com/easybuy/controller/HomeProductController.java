@@ -33,18 +33,24 @@ public class HomeProductController {
         //第1类商品查询
         if (level == 1){
             productList = productService.queryProductsByCate1Id(category);
+            Integer total = productList.size();
             model.addAttribute("productList",productList);
+            model.addAttribute("total",total);
             return "pre/product/queryProductList";
         }
         //第2类商品查询
         if (level == 2){
             productList = productService.queryProductsByCate2Id(category);
+            Integer total = productList.size();
+            model.addAttribute("total",total);
             model.addAttribute("productList",productList);
             return "pre/product/queryProductList";
         }
         //第3类商品查询
         if (level == 3){
             productList = productService.queryProductsByCate3Id(category);
+            Integer total = productList.size();
+            model.addAttribute("total",total);
             model.addAttribute("productList",productList);
             return "pre/product/queryProductList";
         }
@@ -59,5 +65,17 @@ public class HomeProductController {
         Product product = productService.queryProductById(id);
         model.addAttribute("product",product);
         return "pre/product/productDetail";
+    }
+
+    //搜索商品、searchBar
+    @RequestMapping("/searchProduct")
+    public String searchProduct(@RequestParam(value = "keyWord",defaultValue = "华为") String keyWord,Model model){
+        List<ProductCategoryVo> productCategoryVoList = productCategoryService.queryAllCategories();
+        List<Product> productList = productService.searchProduct(keyWord);
+        Integer total = productList.size();
+        model.addAttribute("productCategoryVoList",productCategoryVoList);
+        model.addAttribute("productList",productList);
+        model.addAttribute("total",total);
+        return "pre/product/queryProductList";
     }
 }
