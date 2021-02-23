@@ -37,7 +37,7 @@
 </div>
 <ul class="menu_r">
     <li><a href="${ctx}/Home/index.html">首页</a></li>
-    <c:forEach items="${productCategoryVoList}" var="temp">
+    <c:forEach items="${productCategoryVoList}" var="temp" begin="0" step="1" end="5">
         <li><a href="${ctx}/Product/queryProductList?level=1&category=${temp.productCategory.id}">${temp.productCategory.name}</a></li>
     </c:forEach>
 </ul>

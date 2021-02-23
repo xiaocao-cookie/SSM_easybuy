@@ -5,45 +5,33 @@ function addCart(){
     var entityId=$("input[name='entityId']").val();
     var quantity=$("input[name='quantity']").val();
     //添加到购物车
-    addCartByParam(entityId,quantity);
-}
-/**
- * 商品列表页添加到购物车
- * @param entityId
- * @param quantity
- */
-function addCartByParam(entityId,quantity){
-    //添加到购物车
     $.ajax({
-        url: contextPath + "/Cart",
+        url: contextPath + "/Cart/add",
         method: "post",
         data: {
-            action: "add",
             entityId: entityId,
             quantity: quantity
         },
         success: function (jsonStr) {
-        	 var result = eval("(" + jsonStr + ")");
-             //状态判断
-             if (result.status == 1) {
-            	 showMessage("操作成功");
-            	 refreshCart();
-             }else{
-            	 showMessage(result.message);
-             }
+            var result = eval("(" + jsonStr + ")");
+            //状态判断
+            if (result.status == 1) {
+                showMessage(result.message);
+                refreshCart();
+            }else{
+                showMessage(result.message);
+            }
         }
     } )
 }
+
 /**
  * 刷新购物车 searchBar DIV
  */
 function refreshCart(){
     $.ajax({
-        url: contextPath + "/Cart",
+        url: contextPath + "/Cart/refreshCart",
         method: "post",
-        data: {
-            action: "refreshCart"
-        },
         success: function (jsonStr) {
             $("#searchBar").html(jsonStr);
         }
@@ -54,11 +42,8 @@ function refreshCart(){
  */
 function settlement1(){
     $.ajax({
-        url: contextPath + "/Cart",
+        url: contextPath + "/Cart/settlement1",
         method: "post",
-        data: {
-            action: "settlement1"
-        },
         success: function (jsonStr) {
         	refreshCart();
             $("#settlement").html(jsonStr);
@@ -70,11 +55,8 @@ function settlement1(){
  */
 function settlement2(){
     $.ajax({
-        url: contextPath + "/Cart",
+        url: contextPath + "/Cart/settlement2",
         method: "post",
-        data: {
-            action: "settlement2"
-        },
         success: function (jsonStr) {
             $("#settlement").html(jsonStr);
         }
@@ -101,10 +83,9 @@ function settlement3(){
         }
     }
     $.ajax({
-        url: contextPath + "/Cart",
+        url: contextPath + "/Cart/settlement3",
         method: "post",
         data: {
-            action: "settlement3",
             addressId:addressId,
             newAddress:newAddress,
             newRemark:newRemark
@@ -149,10 +130,9 @@ function subQuantity(obj,entityId){
  */
 function modifyCart(entityId,quantity,obj){
 	$.ajax({
-        url: contextPath + "/Cart",
+        url: contextPath + "/Cart/modifyCart",
         method: "post",
         data: {
-            action: "modCart",
             entityId:entityId,
             quantity:quantity
         },

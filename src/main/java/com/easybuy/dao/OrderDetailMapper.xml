@@ -6,7 +6,11 @@
     namespace:放的是接口的全限定类名，也就是../*Mapper
 -->
 <mapper namespace="com.easybuy.dao.OrderDetailMapper">
-
+    <insert id="add">
+        insert
+        into easybuy_order_detail(orderId,productId,quantity,cost)
+        values(#{orderId},#{productId},#{quantity},#{cost})
+    </insert>
     <select id="queryOrderDetailByOrderId" resultType="com.easybuy.entity.OrderDetail">
         SELECT * FROM `easybuy_order_detail` WHERE orderId = #{orderId}
     </select>

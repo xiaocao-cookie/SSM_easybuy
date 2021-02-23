@@ -6,8 +6,11 @@
     namespace:放的是接口的全限定列名，也就是../*Mapper
 -->
 <mapper namespace="com.easybuy.dao.OrderMapper">
-
-
+    <insert id="add">
+        insert
+        into easybuy_order(userId,loginName,userAddress,createTime,cost,serialNumber)
+        values(#{userId},#{loginName},#{userAddress},#{createTime},#{cost},#{serialNumber})
+    </insert>
     <select id="queryPageOrders" resultType="com.easybuy.entity.Order">
         SELECT * FROM easybuy_order ORDER BY createTime limit #{from},#{pageSize}
     </select>
@@ -17,6 +20,10 @@
 
     <select id="queryOrdersById" resultType="com.easybuy.entity.Order">
         SELECT * FROM easybuy_order where userid = #{userId}
+    </select>
+    <select id="queryIdBySerialNum" resultType="java.lang.Integer">
+        SELECT id FROM `easybuy_order`
+        WHERE serialNumber = #{serialNumber}
     </select>
 
 </mapper>

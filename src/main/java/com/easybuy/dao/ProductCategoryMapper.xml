@@ -6,6 +6,9 @@
     namespace:放的是接口的全限定列名，也就是../*Mapper
 -->
 <mapper namespace="com.easybuy.dao.ProductCategoryMapper">
+    <insert id="add">
+        INSERT into easybuy_product_category(name,parentId,type,iconClass) values(#{name},#{parentId},#{type},#{iconClass})
+    </insert>
     <delete id="deleteProductCategoryById">
         DELETE FROM easybuy_product_category WHERE id = #{id}
     </delete>
@@ -32,5 +35,19 @@
     </select>
     <select id="queryProductByCategoryId" resultType="com.easybuy.entity.Product">
         SELECT * FROM `easybuy_product` p,`easybuy_product_category` c WHERE p.categoryLevel3Id = #{id}
+    </select>
+    <select id="queryProductCategorylist" resultType="com.easybuy.entity.ProductCategory">
+        SELECT epc1.*,epc2.name as parentName
+        FROM easybuy_product_category epc1 LEFT JOIN easybuy_product_category epc2 ON epc1.parentId=epc2.id
+        where 1=1
+        <if test="name != null">
+            and epc1.name like concat('%',#{name},'%')
+        </if>
+        <if test="parentId != null">
+            and epc1.parentId = #{parentId}
+        </if>
+        <if test="type != null">
+            and epc1.type = #{type}
+        </if>
     </select>
 </mapper>

@@ -7,6 +7,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 	<settings>
+		<!-- 配置mybatis的log实现为LOG4J -->
+		<setting name="logImpl" value="LOG4J" />
 		<!-- 配置二级缓存,默认是true,
      但是相对应的Mapper文件要加上<cache/>标签,
      哪个sql语句若想使用二级缓存，则需要在标签上加上 useCache="true" -->

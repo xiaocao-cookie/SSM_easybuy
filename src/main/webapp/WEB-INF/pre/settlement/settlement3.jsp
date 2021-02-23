@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="${ctx}/Home?action=index">首页</a> &nbsp; &nbsp; <a href="${ctx}/Home?action=index">用户中心</a>
+                    <a href="${ctx}/Home/index.html">首页</a> &nbsp; &nbsp; <a href="${ctx}/admin/user/personalUserInfo">用户中心</a>
                 </td>
             </tr>
         </table>

@@ -21,10 +21,12 @@
         categoryLevel3Id = #{categoryLevel3Id},fileName = #{fileName}
         WHERE id = #{id}
     </update>
+    <update id="updateStock">
+        update easybuy_product set stock= stock - #{quantity} where id= #{id}
+    </update>
     <delete id="deleteProductById">
         DELETE FROM easybuy_product WHERE id = #{id}
     </delete>
-
 
     <select id="queryPageProduct" resultType="com.easybuy.entity.Product">
         SELECT * FROM easybuy_product limit #{from},#{pageSize}

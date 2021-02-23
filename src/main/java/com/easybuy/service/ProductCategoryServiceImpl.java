@@ -5,6 +5,7 @@ import com.easybuy.dao.ProductMapper;
 import com.easybuy.entity.ProductCategoryVo;
 import com.easybuy.entity.Product;
 import com.easybuy.entity.ProductCategory;
+import com.easybuy.param.ProductCategoryParam;
 import com.easybuy.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -109,9 +110,9 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         if (type == 1){
             productList1 = productMapper.queryProductsByCate1Id(id);
         }else if (type == 2){
-            productList2 = productMapper.queryProductsByCate1Id(id);
+            productList2 = productMapper.queryProductsByCate2Id(id);
         }else if (type == 3){
-            productList3 = productMapper.queryProductsByCate1Id(id);
+            productList3 = productMapper.queryProductsByCate3Id(id);
         }
         int i = 0;
         //三个集合均为空时，才可删除此分类
@@ -125,5 +126,17 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     public List<Product> queryProductByCategoryId(Integer id) {
         List<Product> productList = productCategoryMapper.queryProductByCategoryId(id);
         return productList;
+    }
+
+    @Override
+    public List<ProductCategory> queryProductCategoryList(ProductCategoryParam params) {
+        List<ProductCategory> categoryList = productCategoryMapper.queryProductCategorylist(params);
+        return categoryList;
+    }
+
+    @Override
+    public Integer addProductCategory(ProductCategory productCategory) {
+        Integer i = productCategoryMapper.add(productCategory);
+        return i;
     }
 }

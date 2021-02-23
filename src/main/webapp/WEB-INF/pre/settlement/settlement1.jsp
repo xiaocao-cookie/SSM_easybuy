@@ -21,7 +21,7 @@
             <tr>
                 <td>
                     <div class="c_s_img">
-                        <a href="${ctx}/Product?action=queryProductDetail&id=${temp.product.id}"><img src="${ctx}/files/${temp.product.fileName}" width="73" height="73"/></a>
+                        <a href="${ctx}/Product/queryProductDetail&id=${temp.product.id}"><img src="${ctx}/statics/files/${temp.product.fileName}" width="73" height="73"/></a>
                     </div>
                         ${temp.product.name}
                 </td>
@@ -49,7 +49,7 @@
         </tr>
         <tr valign="top" height="150">
             <td colspan="6" align="right">
-                <a href="${ctx}/Home?action=index"><img src="${ctx}/statics/images/buy1.gif" /></a>&nbsp;&nbsp;
+                <a href="${ctx}/Home/index.html"><img src="${ctx}/statics/images/buy1.gif" /></a>&nbsp;&nbsp;
                 <c:if test="${sessionScope.cart!=null && sessionScope.cart.sum>0}">
                     <a href="javascript:void(0);" onclick="settlement2();"><img src="${ctx}/statics/images/buy2.gif" /></a>
                 </c:if>

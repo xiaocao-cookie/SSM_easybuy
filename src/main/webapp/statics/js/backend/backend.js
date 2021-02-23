@@ -1,14 +1,14 @@
 //分类添加
 function toAddProductCategory() {
     $("#addProductCategory").show();
-    // $.ajax({
-    //     url: contextPath + "/admin/productCategory/toAddProductCategory",
-    //     method: "post",
-    //     success: function (jsonStr) {
-    //         $("#addProductCategory").html(jsonStr);
-    //         $("input[name=select]").removeAttr("checked");
-    //     }
-    // });
+    $.ajax({
+        url: contextPath + "/admin/productCategory/toAddProductCategory",
+        method: "post",
+        success: function (jsonStr) {
+            $("#addProductCategory").html(jsonStr);
+            $("input[name=select]").removeAttr("checked");
+        }
+    });
 }
 function addProductCategory() {
     var productCategoryLevel1 = $("#productCategoryLevel1").val();
@@ -16,10 +16,9 @@ function addProductCategory() {
     var name = $("#name").val();
     var type = $("#type").val();
     $.ajax({
-        url: contextPath + "/admin/productCategory",
+        url: contextPath + "/admin/productCategory/addProductCategory",
         method: "post",
         data: {
-            action: "addProductCategory",
             name: name,
             type: type,
             productCategoryLevel1: (productCategoryLevel1 == null || productCategoryLevel1 == "") ? 0 : productCategoryLevel1,
@@ -39,13 +38,13 @@ function addProductCategory() {
 function queryProductCategoryList(obj, selectId) {
     var parentId = $(obj).val();
     $.ajax({
-        url: contextPath + "/admin/productCategory",
+        url: contextPath + "/admin/productCategory/queryProductCategoryList",
         method: "post",
         data: {
-            action: "queryProductCategoryList",
             parentId: parentId
         },
         success: function (jsonStr) {
+            // var result = JSON.parse(jsonStr);
             var result = eval("(" + jsonStr + ")");
             //状态判断
             if (result.status == 1) {

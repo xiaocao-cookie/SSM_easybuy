@@ -2,6 +2,7 @@ package com.easybuy.controller;
 
 import com.easybuy.entity.Product;
 import com.easybuy.entity.ProductCategory;
+import com.easybuy.param.ProductCategoryParam;
 import com.easybuy.service.ProductCategoryService;
 import com.easybuy.service.ProductService;
 import com.easybuy.util.Page;
@@ -41,13 +42,14 @@ public class ProductController {
     //leftBar中商品准备上架
     @RequestMapping("/toAddProduct")
     public String toAddProduct(Model model){
-        List<ProductCategory> proCategoryList1 = proCategoryService.queryNameByType(1);
-        List<ProductCategory> proCategoryList2 = proCategoryService.queryNameByType(2);
-        List<ProductCategory> proCategoryList3 = proCategoryService.queryNameByType(3);
-        model.addAttribute("productCategoryList1",proCategoryList1);
-        model.addAttribute("productCategoryList2",proCategoryList2);
-        model.addAttribute("productCategoryList3",proCategoryList3);
+        //查询一级分类
+        ProductCategoryParam params =new ProductCategoryParam();
+        params.setType(1);
+        List<ProductCategory> productCategoryList=proCategoryService.queryProductCategoryList(params);
+        //一级分类列表
+        model.addAttribute("productCategoryList1", productCategoryList);
         model.addAttribute("menu",6);
+        model.addAttribute("product",new Product());
        return "backend/product/toAddProduct";
     }
 

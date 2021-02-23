@@ -16,4 +16,8 @@ public interface OrderMapper {
     public int queryTotalCounts();
 
     public List<Order> queryOrdersById(Integer userId);
+    //保存订单
+    public int add(Order order);
+    //通过序列号查询订单id
+    public Integer queryIdBySerialNum(String serialNumber);
 }

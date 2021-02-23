@@ -34,4 +34,8 @@ public interface ProductMapper {
     public List<Product> queryProductsByCate3Id(int categoryLevel3Id);
     //模糊查询(搜索栏搜索)
     public List<Product> searchProduct(String name);
+    //更新库存
+    public Integer updateStock(
+            @Param("id") Integer id,
+            @Param("quantity") Integer quantity);
 }

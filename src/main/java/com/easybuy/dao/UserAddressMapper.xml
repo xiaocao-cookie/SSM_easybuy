@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
+-->
+<mapper namespace="com.easybuy.dao.UserAddressMapper">
+    <insert id="add">
+        INSERT
+        into easybuy_user_address(userId,address,createTime,isDefault,remark)
+        VALUES(#{userId},#{address},#{createTime},#{isDefault},#{remark})
+    </insert>
+
+    <select id="queryUserAddressList" resultType="com.easybuy.entity.UserAddress">
+        select id,userId,address,createTime,isDefault,remark
+        from easybuy_user_address
+        where 1=1
+        <if test="userId != null">
+            and userId = #{userId}
+        </if>
+        <if test="address != null">
+            and address like concat('%',#{address},'%')
+        </if>
+    </select>
+    <select id="getUserAddressById" resultType="com.easybuy.entity.UserAddress">
+        select id,userId,address,createTime,isDefault,remark
+        from easybuy_user_address
+        where id=#{addressId}
+    </select>
+</mapper>

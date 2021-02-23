@@ -33,7 +33,7 @@
             <ul class="cars">
                 <c:forEach items="${sessionScope.cart.items}" var="temp">
                     <li>
-                        <div class="img"><a href="${ctx}/Product/queryProductDetail?id=${temp.product.id}"><img src="${ctx}/files/${temp.product.fileName}" width="58" height="58" /></a></div>
+                        <div class="img"><a href="${ctx}/Product/queryProductDetail?id=${temp.product.id}"><img src="${ctx}/statics/files/${temp.product.fileName}" width="58" height="58" /></a></div>
                         <div class="name"><a href="${ctx}/Product/queryProductDetail?id=${temp.product.id}">${temp.product.name}</a></div>
                         <div class="price"><font color="#ff4e00">￥${temp.product.price}</font> X${temp.quantity}</div>
                     </li>
@@ -44,7 +44,7 @@
                 <div class="price_a"><a href="${ctx}/Login/toLogin">去登录</a></div>
             </c:if>
             <c:if test="${sessionScope.loginUser!=null}">
-                <div class="price_a"><a href="${ctx}/Cart?action=toSettlement">去结算</a></div>
+                <div class="price_a"><a href="${ctx}/Cart/toSettlement">去结算</a></div>
             </c:if>
             <!--End 购物车已登录 End-->
         </div>

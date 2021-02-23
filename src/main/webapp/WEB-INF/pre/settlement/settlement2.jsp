@@ -22,7 +22,7 @@
                 <tr>
                     <td>
                         <div class="c_s_img">
-                            <img src="${ctx}/files/${temp.product.fileName}" width="73" height="73"/>
+                            <img src="${ctx}/statics/files/${temp.product.fileName}" width="73" height="73"/>
                         </div>
                             ${temp.product.name}
                     </td>
@@ -89,8 +89,11 @@
                 </td>
             </tr>
             <tr height="70">
-                <td align="right"><a href="javascript:void(0);" onclick="settlement3();"><img
-                        src="${ctx}/statics/images/btn_sure.gif"/></a></td>
+                <td align="right">
+                    <a href="javascript:void(0);" onclick="settlement3();">
+                        <img src="${ctx}/statics/images/btn_sure.gif"/>
+                    </a>
+                </td>
             </tr>
         </table>
     </div>
