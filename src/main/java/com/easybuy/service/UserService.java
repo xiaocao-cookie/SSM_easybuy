@@ -22,4 +22,6 @@ public interface UserService {
     public int updateUser(User user);
     //根据id查询用户
     public User queryUserById(Integer id);
+    //根据用户名查询用户
+    public User queryUserByLoginName(String loginName);
 }

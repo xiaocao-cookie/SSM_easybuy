@@ -46,4 +46,7 @@
     <select id="queryUserById" resultType="com.easybuy.entity.User">
         SELECT * FROM easybuy_user WHERE id = #{id}
     </select>
+    <select id="queryUserByLoginName" resultType="com.easybuy.entity.User">
+        SELECT * FROM `easybuy_user` WHERE loginName = #{loginName}
+    </select>
 </mapper>

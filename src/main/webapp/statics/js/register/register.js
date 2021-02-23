@@ -77,7 +77,9 @@ function register() {
                 window.location.href = contextPath + "/Login/toLogin";
             } else {
                 showMessage(result.message);
-                window.location.reload();
+                setTimeout(function () {
+                    window.location.reload();
+                },2000);
             }
         }
     })

@@ -44,12 +44,18 @@ public class RegisterController {
         PrintWriter out = response.getWriter();
         User user1=new User(loginName, userName, SecurityUtils.md5Hex(password), sex, identityCode,  email,  mobile, 0);
         Secret secret = new Secret(loginName,password);
-        int j = secretService.addSecret(secret);
-        int i = userService.registerUser(user1);
-        if (i > 0 && j > 0){
-            out.println("{'status':'1','message':'注册成功'}");
+        //先查询是否有该用户
+        User user = userService.queryUserByLoginName(loginName);
+        if (user != null){
+            out.println("{'status':'2','message':'此用户名已存在'}");
         }else{
-           out.println("{'status':'0','message':'注册失败'}");
+            int j = secretService.addSecret(secret);
+            int i = userService.registerUser(user1);
+            if (i > 0 && j > 0){
+                out.println("{'status':'1','message':'注册成功'}");
+            }else{
+                out.println("{'status':'0','message':'注册失败'}");
+            }
         }
     }
 }

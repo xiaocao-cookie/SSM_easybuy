@@ -30,4 +30,6 @@ public interface UserMapper {
     public int updateUserById(User user);
     //根据用户id查询用户
     public User queryUserById(Integer id);
+    //根据用户名查询用户
+    public User queryUserByLoginName(String loginName);
 }

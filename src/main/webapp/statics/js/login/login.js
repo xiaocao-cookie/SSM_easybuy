@@ -31,10 +31,14 @@ function findPassword() {
             //无该用户
             if(result.status == 1){
                 showMessage(result.message);
-                window.location.reload();
+                setTimeout(function () {
+                    window.location.reload()
+                },2000);
             }else{
                 showMessage("您的密码为:"+result.message);
-                window.location.reload();
+                setTimeout(function () {
+                    window.location.reload()
+                },2000);
             }
         }
     });
